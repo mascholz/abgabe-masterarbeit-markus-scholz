@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Definitions_13oe62r" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.1">
+  <decision id="Decision_1xdcqhoRisk" name="Folgerungen">
+    <decisionTable id="DecisionTable_0cddkz9" hitPolicy="COLLECT">
+      <input id="Input_1" label="conclusion">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>conclusion</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="noCode" name="noCode" typeRef="string" />
+      <output id="OutputClause_1esle38" label="lowCode" name="lowCode" typeRef="string" />
+      <output id="OutputClause_1i6p2ht" label="code" name="code" typeRef="string" />
+      <output id="OutputClause_0pregir" label="name" name="name" typeRef="string" />
+      <rule id="DecisionRule_15g60ot">
+        <description>Setupzeit</description>
+        <inputEntry id="UnaryTests_1q8miye">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15y0j02">
+          <text>"Die Dauer für das Aufsetzen einer neuen Anwendung ist sehr schnell."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04y0b21">
+          <text>"Die Dauer für das Aufsetzen einer neuen Anwendung ist schnell."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yfrcl8">
+          <text>"Für das Aufsetzen einer neuen Anwendung muss genügend Zeit eingeplant werden. Es muss eine Entwicklungsumgebung, GIT, CI/CD Piplines, etc. eingerichtet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kiosat">
+          <text>"Setupzeit"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jzch2s">
+        <description>Laufende Kosten</description>
+        <inputEntry id="UnaryTests_059egu3">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gquvzz">
+          <text>"Die Plattformen laufen üblicherweise mit Lizenzmodellen. Es fallen Kosten pro Benutzer, pro Anwendung oder genutzt Rechenleistung an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1y8d7wg">
+          <text>"Die Plattformen laufen üblicherweise mit Lizenzmodellen. Es fallen Kosten pro Benutzer, pro Anwendung oder genutzt Rechenleistung an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1uulpmy">
+          <text>"Es fallen Infrastrukturkosten für Server an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qhi3ui">
+          <text>"Laufende Kosten"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_072bm95">
+        <description>Updatesicherheit</description>
+        <inputEntry id="UnaryTests_1p8q6uu">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13fwg2r">
+          <text>"Für Updates ist der Anbieter zuständig. Dadurch entsteht eine Abhängigkeit, bei Schwachstellen. Bei Updates muss sich nach dem Zeitplan des Anbieters gerichtet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_128olci">
+          <text>"Für Updates ist der Anbieter zuständig. Dadurch entsteht eine Abhängigkeit, bei Schwachstellen. Bei Updates muss sich nach dem Zeitplan des Anbieters gerichtet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c83zcx">
+          <text>"Es steht in der eigene ​Verantwortung für das Einspielen neuer Updates."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1pz4v01">
+          <text>"Updatesicherheit"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16m50j1">
+        <description>Technische Schulden</description>
+        <inputEntry id="UnaryTests_0s9v3kr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jje58y">
+          <text>"Durch die vorgegebenen Module kann eine Anwendung mit sehr geringen technischen Schulden entwickelt werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rwwhrv">
+          <text>"Durch die vorgegebenen Module kann eine Anwendung mit geringen technischen Schulden entwickelt werden. Jedoch wird beim Hinzufügen von Quellcode in verschiedenen Stellen die Struktur unübersichtlich. Dadurch können große technische Schulden entstehen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1efizty">
+          <text>"Die Anwendung sollte mit einer klaren Architektur, Struktur und unter Verwendung von Richtlinien entwickelt werden, damit nur geringe technische Schulden entstehen. Nicht vermeidbare technische Schulden sollten gut dokumentiert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17lxmec">
+          <text>"Technische Schulden"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x6i42p">
+        <description>Fehlersuche</description>
+        <inputEntry id="UnaryTests_0ggeffr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15rzcbl">
+          <text>"Es werden meist keine Hilfsmittel zur Fehlersuche in der Anwendung bereitgestellt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dlggck">
+          <text>"An einigen Stellen gibt es gute Möglichkeiten in der Anwendung nach Fehler zu suchen. Jedoch gibt es bei bestimmten Modulen kein Einblick, sodass das Modul als schwarze Box betrachtet werden muss. Eine Fehlersuche ist dann sehr schwierig."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lkpl34">
+          <text>"Es gibt zahlreiche Hilfmittel zur Fehlersuche."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1sm3g8c">
+          <text>"Fehlersuche"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1xdcqhoRisk">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

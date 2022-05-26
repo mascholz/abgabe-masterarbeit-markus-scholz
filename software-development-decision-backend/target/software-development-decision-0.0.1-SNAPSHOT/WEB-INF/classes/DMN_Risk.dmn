@@ -1,0 +1,3760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0obsizr" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.1">
+  <decision id="performance" name="Leistungseffizienz">
+    <decisionTable id="DecisionTable_0rlq3ex">
+      <input id="Input_1" label="Ist die Systemperformance anwendungskritisch?" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>timeBehavior</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0qp79ht" label="Stehen bestimmte Ressourcen bei der Nutzung der Anwendung begrenzt zur Verfügung? (Bsp. Internetverbindung, Datenvolumen, Speicher, etc.)">
+        <inputExpression id="LiteralExpression_0rm7pfz" typeRef="boolean">
+          <text>ressourceUsage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0fa2h8o" label="Wie viele User werden die Anwendung benutzen?">
+        <inputExpression id="LiteralExpression_12rk31l" typeRef="integer">
+          <text>capacity</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Performance No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_0irn6p2">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_1yk2zbh" label="Performance Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_1pfz489">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_1o0kklz" label="Performance Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_1v7vlm7">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0ersgkf">
+        <inputEntry id="UnaryTests_1olyqol">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cjx528">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_160hzaa">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tpvr8g">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cky2y9">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ezgbr2">
+          <text>"komplex"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_005aag7">
+        <inputEntry id="UnaryTests_1j6b9si">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u396qs">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gcr6fa">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sxolg6">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bkviun">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1p7s61j">
+          <text>"komplex"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hstl88">
+        <inputEntry id="UnaryTests_02tmlqg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03n4dsb">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vvnmmt">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11bjbcn">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0e4ub11">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rcm7d5">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hrnpbd">
+        <inputEntry id="UnaryTests_0dh1ddv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jzktd6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ywzk3">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17dndut">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14llav1">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ys9vsb">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16k5n8l">
+        <inputEntry id="UnaryTests_1bwr6gz">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_167gfdc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vi0o0x">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g0qbtj">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16zxh42">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19wmdr4">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nxd25t">
+        <inputEntry id="UnaryTests_1kzxbwu">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rnty0w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ls352h">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sf8zrt">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16wn76z">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1azkkgs">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0smowzn">
+        <inputEntry id="UnaryTests_01r2dp3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xiq6p4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03db0lw">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t2mj1j">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1h7m5h9">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0s376kz">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ll3jcw">
+        <inputEntry id="UnaryTests_0a222i3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1esxp3h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bhfhl5">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zs97zl">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kj2ymy">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bhpqhn">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="performanceRisk" name="Leistungseffizienz Risiko">
+    <informationRequirement id="InformationRequirement_18m2sl8">
+      <requiredDecision href="#performance" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1uaskzd" hitPolicy="COLLECT">
+      <input id="InputClause_001fnr5" label="timeBehavior">
+        <inputExpression id="LiteralExpression_1ega9qk" typeRef="boolean">
+          <text>timeBehavior</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_01lhqon" label="ressourceUsage">
+        <inputExpression id="LiteralExpression_0ues0wp" typeRef="boolean">
+          <text>ressourceUsage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_06xuh6c" label="capacity">
+        <inputExpression id="LiteralExpression_1xeoft5" typeRef="integer">
+          <text>capacity</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_09ezhsu" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_0q3czbz" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_1o5o9vu" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_0j1yl3l">
+        <inputEntry id="UnaryTests_0qvxj7f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fmd8z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11fz5hr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1phjyy4">
+          <text>"Die Systemperformance ist bei No Code nicht beeinflussbar. Es muss geprüft werden welche Verfügbarkeit der Anbieter bietet."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qjbnsu">
+          <text>"Die Systemperformance ist bei Low Code nicht beeinflussbar. Es muss geprüft werden welche Verfügbarkeit der Anbieter bietet."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14v6diq">
+          <text>"Die Systemperformance muss bei der Entwicklung selbst berücksichtigt werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mehqrf">
+        <inputEntry id="UnaryTests_0damqp8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yidrgf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17bwmz5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rs4vsa">
+          <text>"Die Ressourcen stehen bei No Code nur begrenzt zur Verfügung. Bei hohem Speichervolumen können hohe Kosten anfallen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vsfs5y">
+          <text>"Low Code Plattformen bieten teilweise Standardfunktionalitäten wie z.B. Offlinefähigkeit an. Zudem können Speicher individuell erweitert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lk160r">
+          <text>"Die geplante Ressourcennutzung muss bei der Entwicklung berücksichtigt werden, sodass die Anwendung effizient läuft."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sj855x">
+        <inputEntry id="UnaryTests_0qc4bt8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wen701">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b4lwo0">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02b84mm">
+          <text>"Bei einer hohen Anzahl an Benutzern ist No Code nicht zu empfehlen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_000bgff">
+          <text>"Es muss geprüft werden, ob die Plattform die hohe Anzahl an Benutzer verträgt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_12sa4hr">
+          <text>"Die Architektur muss entsprechend für eine hohe Anzahl an Benutzer ausgerichtet werden."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="compatibility" name="Kompatibilität">
+    <decisionTable id="DecisionTable_08ik2vs">
+      <input id="InputClause_1c9d55k" label="Werden bereits andere Systeme eingesetzt?">
+        <inputExpression id="LiteralExpression_0nrwu0m" typeRef="boolean">
+          <text>coexistence</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tkidby" label="Gibt es Schnittstellen zu anderen Systemen? (keine|wenige|viel)">
+        <inputExpression id="LiteralExpression_1x3iphz" typeRef="string">
+          <text>interoperability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_15u040r">
+          <text>"keine","wenige","viel"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_1ta5lor" label="Kompatibilität No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_191463w">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0r85rkx" label="Kompatibilität Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_13nil2c">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_13uvy12" label="Kompatibilität Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_03ltpaq">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_18ovpfa">
+        <inputEntry id="UnaryTests_0w2sgzc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dp2kma">
+          <text>"keine"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_102kqk1">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cynwuo">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1mk2xwg">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1acnsvh">
+        <inputEntry id="UnaryTests_09ei000">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v6v3kx">
+          <text>"wenige"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03bfvr0">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17c9udx">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0b9w221">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_028g5iz">
+        <inputEntry id="UnaryTests_1lpnaka">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t8mtlh">
+          <text>"viel"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13oszh6">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0v6pzw7">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ricw1l">
+          <text>"komplex"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xfpihp">
+        <inputEntry id="UnaryTests_1wd9w20">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hovaf4">
+          <text>"keine"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zlfrg7">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kn0lx2">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1u4o4u5">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0macko6">
+        <inputEntry id="UnaryTests_1nld0uq">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pnk8ae">
+          <text>"wenige"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t95znt">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0t8kngw">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0db0fab">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jy72s7">
+        <inputEntry id="UnaryTests_1drzqv9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hnb095">
+          <text>"viel"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yakf53">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03ghgdt">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g2wtut">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="compatibilityRisk" name="Kompatibilität Risiko">
+    <informationRequirement id="InformationRequirement_1vx6th6">
+      <requiredDecision href="#compatibility" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_04ya5cw" hitPolicy="COLLECT">
+      <input id="InputClause_08nj9si" label="coexistence">
+        <inputExpression id="LiteralExpression_0irh1xa" typeRef="boolean">
+          <text>coexistence</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_07h1wls" label="interoperability">
+        <inputExpression id="LiteralExpression_0j6k7ys" typeRef="string">
+          <text>interoperability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_01w5ioi">
+          <text>"viel","wenige","keine"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_015im1z" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_1b1766n" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_03cu7cn" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_01xeojb">
+        <inputEntry id="UnaryTests_14wiaor">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ejvjpi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ch22ms">
+          <text>"Die Interaktion zwischen No Code Plattformen und Drittsystemen sind sehr begrenzt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xmatkh">
+          <text>"Die Interaktion zwischen Low Code Plattformen und Drittsystemen sind möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ay0juq">
+          <text>"Für die Eingliederung der neuen Anwendung in die Systemlandschaft werden Schnittstellen benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dfplsc">
+        <inputEntry id="UnaryTests_09j1ivk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15v1mbg">
+          <text>"wenige", "viel"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05h9vwo">
+          <text>"Nur durch bereitgestellte Schnittstellen durch die No Code Plattform können andere Systeme angesprochen werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14xh2d3">
+          <text>"Mit bereitgestellten Schnittstellen durch die Low Code Plattform können andere Systeme angesprochen werden. Mithilfe von Webservices bestehen zahlreiche Möglichkeiten mit Drittsystemen zu kommunizieren."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06f8wqz">
+          <text>"Bei der Entwicklung müssen Schnittstellen implementiert werden. Damit können mit anderen Schnittstellen andere Systeme kommuniziert werden."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="decisionSoftware" name="Entscheidung">
+    <informationRequirement id="InformationRequirement_1owvxlv">
+      <requiredDecision href="#performanceRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_10pzfei">
+      <requiredDecision href="#compatibilityRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0vtpo4a">
+      <requiredDecision href="#reliabilityRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_02gjaux">
+      <requiredDecision href="#securityRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0vsj398">
+      <requiredDecision href="#maintainabilityRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1b44iez">
+      <requiredDecision href="#portabilityRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1xvamox">
+      <requiredDecision href="#datastructureRisk" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_02z1dt5">
+      <requiredDecision href="#usabilityRisk" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_17bh9px" hitPolicy="FIRST">
+      <input id="InputClause_1tlf7lg" label="einfach">
+        <inputExpression id="LiteralExpression_0z53q2c" typeRef="integer">
+          <text>einfach</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0bzsuvn" label="kompliziert">
+        <inputExpression id="LiteralExpression_1i9x599" typeRef="integer">
+          <text>kompliziert</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1aa244h" label="komplex">
+        <inputExpression id="LiteralExpression_1w146jw" typeRef="integer">
+          <text>komplex</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1piuzo9" label="Softwareentwicklungsform" name="softwareentwicklungsform" typeRef="string" />
+      <rule id="DecisionRule_1kiy24p">
+        <inputEntry id="UnaryTests_1tzn0xg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1055wun">
+          <text>&lt;2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rai536">
+          <text>&lt;2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0940yj1">
+          <text>"No Code"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qpdvpa">
+        <inputEntry id="UnaryTests_0kgmsn7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sgamsh">
+          <text>&lt;5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0atlx0g">
+          <text>&lt;5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01sd11q">
+          <text>"Low Code"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03ueoio">
+        <inputEntry id="UnaryTests_1g92keg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y0cusy">
+          <text>&gt;=5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hv147i">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04dfzhu">
+          <text>"Code"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="reliability" name="Zuverlässigkeit">
+    <decisionTable id="DecisionTable_087va8c">
+      <input id="InputClause_1emxlh6" label="Muss die Software eine ausgereifte Qualität haben?">
+        <inputExpression id="LiteralExpression_13e7yqc" typeRef="boolean">
+          <text>maturity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0w4qwc6" label="Wie würde sich ein kurzfristiger Ausfall der Anwendung auswirken?">
+        <inputExpression id="LiteralExpression_0s9imjq" typeRef="string">
+          <text>availability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1ty2q6x">
+          <text>"Unternehmenskritisch","Vertretbar"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0lwgjtv" label="Sind kleinere Fehler in der Anwendung Unternehmenskritisch?">
+        <inputExpression id="LiteralExpression_1ns433w" typeRef="boolean">
+          <text>faultTolerance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_07qzhu1" label="Müssen Daten wiederhergestellt werden können?">
+        <inputExpression id="LiteralExpression_00ooace" typeRef="boolean">
+          <text>recoverability</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0r0qbkn" label="Zuverlässigkeit No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_1hz2kwq">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0cizg56" label="Zuverlässigkeit Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_08mwypw">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_01dm6q2" label="Zuverlässigkeit Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_1le0xdn">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0i4ov5o">
+        <inputEntry id="UnaryTests_0i89cgo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wvyl3i">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mn506s">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aei62i">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1strsud">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17x31pl">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09howk5">
+          <text>"komplex"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19sqwbz">
+        <inputEntry id="UnaryTests_0uyxylh">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ng663d">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q0ni59">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09v64z2">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06tkc1y">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_08bpa0z">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1fm4l60">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p0wp9o">
+        <inputEntry id="UnaryTests_0e1bc9k">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kf3aqb">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hyblvc">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fjlrtf">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0buniut">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0msrdev">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vg330m">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v9c2hz">
+        <inputEntry id="UnaryTests_15c7238">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ytxlm9">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vxmytw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0unc3sp">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ijwajd">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1fs2e8j">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1l6nadi">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jrgnrn">
+        <inputEntry id="UnaryTests_1in4lpr">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tu2dwr">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14obf7c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0skp6jg">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kthnfd">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lo8cpr">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_062hsel">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ki6u8m">
+        <inputEntry id="UnaryTests_1w21xmu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15eanbi">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cs78yw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0irjqjl">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_197ahbs">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ca1ufx">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bsx5fy">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_186efl5">
+        <inputEntry id="UnaryTests_1kt4tsu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vih1gi">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05o1est">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w5b1q8">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1c55unb">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0i2nanc">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p2ztzs">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1quvcnp">
+        <inputEntry id="UnaryTests_0e1bn5g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14izj4w">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jfs7pr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e3oxeq">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c56k3b">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uojmql">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1u6k6tl">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12njikj">
+        <inputEntry id="UnaryTests_1xgpqcw">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18e14x2">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b0iu06">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lr5huq">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_025v1ch">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mcygwj">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_083bt8v">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1577l11">
+        <inputEntry id="UnaryTests_17a6o66">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nmlt93">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08wam7x">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07u31r3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18fo3hb">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c1hcqz">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yymwqo">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08aqnsz">
+        <inputEntry id="UnaryTests_066wl4p">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lia8y2">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uvcg9j">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xgsotw">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bre913">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r8ialb">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18xtso9">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g75hp6">
+        <inputEntry id="UnaryTests_0e00tx2">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19sao7o">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nf7zjp">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hy7rx5">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03bm4xw">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1f8uh0o">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jq09ol">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ubn6u7">
+        <inputEntry id="UnaryTests_198o2bk">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rc1ukl">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_181nfvn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h6q99e">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hj2agj">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0itxdhy">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vm1cpf">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xbplir">
+        <inputEntry id="UnaryTests_18u7ueg">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xd1x0y">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tssfmi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l0h9mm">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17z1juq">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kk4rft">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qz3p6i">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cdf5t4">
+        <inputEntry id="UnaryTests_05d7f1f">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12dc01n">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rh2w76">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fvs8vv">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16h4v0u">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x16owy">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16w1x7g">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0edyrc9">
+        <inputEntry id="UnaryTests_1mu7ppt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t9oyyj">
+          <text>"Vertretbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zpv4cj">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uev2of">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cdz7tn">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19f4zvz">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gqdpbc">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="reliabilityRisk" name="Zuverlässigkeit Risiko">
+    <informationRequirement id="InformationRequirement_1l01ats">
+      <requiredDecision href="#reliability" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1ym46a9" hitPolicy="COLLECT">
+      <input id="InputClause_1hpjx5b" label="maturity">
+        <inputExpression id="LiteralExpression_171oi86" typeRef="boolean">
+          <text>maturity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12vh1rh" label="availability">
+        <inputExpression id="LiteralExpression_1wmt558" typeRef="string">
+          <text>availability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1dv0yg4">
+          <text>"Unternehmenskritisch","Vertretbar"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0atdttt" label="faultTolerance">
+        <inputExpression id="LiteralExpression_1jprg3n" typeRef="boolean">
+          <text>faultTolerance</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1bmr8a7" label="recoverability">
+        <inputExpression id="LiteralExpression_0qq1jk2" typeRef="boolean">
+          <text>recoverability</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1lbcwhd" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_1fxuhfs" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_1phc12t" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_1mtgwx2">
+        <inputEntry id="UnaryTests_0vgq6g1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zgwfoc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qlvok8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fiarh0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uwhy88">
+          <text>"Die Module sind vom Anbieter bereits getestet. Das Zusammenspiel der Komponenten muss getestet werden. Es gibt keine automatisierten Tests."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bw4awc">
+          <text>"Die Module sind vom Anbieter bereits getestet. Das Zusammenspiel der Komponenten muss getestet werden. Bei Ergänzungen durch Quellcode muss auf die Codequaltität geachtet werden. Es gibt keine automatisierten Tests."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13gzv8l">
+          <text>"Konzept für sauberen, wartbaren und wiederverwendbare Quellcode müssen angewendet werden. Zudem werden automatisierte Tests benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kh7cww">
+        <inputEntry id="UnaryTests_0v79wd9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rf4ym7">
+          <text>"Unternehmenskritisch"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15b9f3j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mxua3t">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jslxpr">
+          <text>"Unternehmenkritische Anwendungen sind ungeeignet mit No Code."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18w9pmu">
+          <text>"Bei Unternehmenskritischen Anwendungen muss auf die Stabiltät, Sicherheit und Verfügbarkeit geachtet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_137h66h">
+          <text>"Bei Unternehmenskritischen Anwendungen muss auf die Stabiltät, Sicherheit und Verfügbarkeit geachtet werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18gpckp">
+        <inputEntry id="UnaryTests_0hlib09">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v51sfn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xmu1wu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00zzw55">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n6hunp">
+          <text>"Aufgrund der nicht vorhandenen Testmöglichkeiten ist das Aufdecken von kleineren Fehlern schwer möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p5mgwt">
+          <text>"Aufgrund der nicht vorhandenen Testmöglichkeiten ist das Aufdecken von kleineren Fehlern schwer möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m3oa21">
+          <text>"Ausreichende Tests müssen geschrieben werden zur Abdeckung kritischer Stellen."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_002gkwq">
+        <inputEntry id="UnaryTests_00t0svk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d55ast">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w91ltd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jevea1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02w0eao">
+          <text>"Bei No Code ist eine Wiederherstellbarkeit meist nur schwer möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ntmah5">
+          <text>"Low Code Plattformen bieten Konzepte zur Wiederherstellung auf einen bestimmten Stand an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1egemcf">
+          <text>"Zum Betrieb muss ein Konzept zur Wiederherstellung erarbeitet werden."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="security" name="Sicherheit">
+    <decisionTable id="DecisionTable_0425r4b" hitPolicy="FIRST">
+      <input id="InputClause_1cgi60y" label="Spielt der Datenschutz eine wesentliche Rolle?">
+        <inputExpression id="LiteralExpression_1vowevv" typeRef="boolean">
+          <text>confidentiality</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09604pw" label="Müssen in der Anwendung verschiedene Rollen autorisiert werden?">
+        <inputExpression id="LiteralExpression_1v6i5yd" typeRef="boolean">
+          <text>integrity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1954jwp" label="Müssen Zugriffe auf Ressourcen zurückverfolgt werden können?">
+        <inputExpression id="LiteralExpression_0xz2aa0" typeRef="boolean">
+          <text>indisputability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ywfl64" label="Müssen die Daten revisionssicher sein?">
+        <inputExpression id="LiteralExpression_1qvexit" typeRef="boolean">
+          <text>accountability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ac74qn" label="Muss eine Authentifizierung der User gewährleistet sein?">
+        <inputExpression id="LiteralExpression_13uihz7" typeRef="boolean">
+          <text>authenticity</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_165iipj" label="Sicherheit No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_1694k2f">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0heolfr" label="Sicherheit Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_1itkfxx">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0h0prft" label="Sicherheit Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_0zamhdc">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1s62gm9">
+        <inputEntry id="UnaryTests_00vv9kh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ld6vcm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lo2nvg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ihl9yv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gb3528">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sqk6gy">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_073xezx">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dgp8ek">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1k3vptg">
+        <inputEntry id="UnaryTests_0bqaltf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qzzf1p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t53l2f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sokvmt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mwtk33">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qyxl3t">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m1kd8r">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1p3b8c0">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16c6gg1">
+        <inputEntry id="UnaryTests_1wmepc1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02qfyux">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sg0a9p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v283z3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ja07tb">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0thdjfb">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1837i1b">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0pqsa0i">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ay4t0c">
+        <inputEntry id="UnaryTests_0mcsvfc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ko2qiu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r073dq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o2wilc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ala1mb">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05qhg1u">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0htuhjt">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qcpakp">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cukuz9">
+        <inputEntry id="UnaryTests_1s0hwgb">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00r533y">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xsb2f6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1acmcbi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h2p4k7">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gus3j8">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0a87p87">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_165f1e3">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yx789y">
+        <inputEntry id="UnaryTests_08mlbpy">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0znkzkr">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13dqt07">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iwccmg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k7coqs">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rsyfel">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18858hb">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xi8iq1">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xhj6bx">
+        <inputEntry id="UnaryTests_0zeuxut">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wrqt2h">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hc9k80">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1exuwr0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x4ved5">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kouweh">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1e8rc7l">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11ni5x2">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0f7v498">
+        <inputEntry id="UnaryTests_0tuq1d5">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0987q7d">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o248dy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oehoyk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tazgbi">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cxio7x">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1mw6tlj">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0q1ld7b">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oz17yp">
+        <inputEntry id="UnaryTests_00vcxy9">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aa1372">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r8bk26">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u3st66">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00md7e6">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xr94yn">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00brww3">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zm4sbv">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1btar7n">
+        <inputEntry id="UnaryTests_14uaiky">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k4z6zb">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jw98rt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ssyxrs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wf8e9o">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08wahyt">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jsuvmi">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ak9m2j">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="securityRisk" name="Sicherheit Risiko">
+    <informationRequirement id="InformationRequirement_1s8nhma">
+      <requiredDecision href="#security" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1n20cxd" hitPolicy="COLLECT">
+      <input id="InputClause_1rgv26l" label="confidentiality">
+        <inputExpression id="LiteralExpression_1l8brlx" typeRef="boolean">
+          <text>confidentiality</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0dd2lnj" label="integrity">
+        <inputExpression id="LiteralExpression_02k5w6b" typeRef="boolean">
+          <text>integrity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c08510" label="indisputability">
+        <inputExpression id="LiteralExpression_1q03umx" typeRef="boolean">
+          <text>indisputability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1dv5s0y" label="accountability">
+        <inputExpression id="LiteralExpression_03yf72n" typeRef="boolean">
+          <text>accountability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hywmjf" label="authenticity">
+        <inputExpression id="LiteralExpression_00g2uf8" typeRef="boolean">
+          <text>authenticity</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_086f2pz" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_11qt6my" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_1y7irjz" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_1h3wiew">
+        <inputEntry id="UnaryTests_1wi0b3y">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pq244o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03xr24l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_164du1c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02ntfgo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06u1x22">
+          <text>"Es muss darauf geachtet werden, dass die Plattform den Datenschutz berücksichtigt. Dadurch muss das Thema Datenschutz nicht fokussiert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1d8czy1">
+          <text>"Es muss darauf geachtet werden, dass die Plattform den Datenschutz berücksichtigt. Dadurch muss das Thema Datenschutz nicht fokussiert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jprnwq">
+          <text>"Für die Umsetzung des Datenschutzes empfiehlt es sich einen Datenschutzexperten hinzuzuziehen, damit Anwendung Datenschutzkonform entwickelt werden kann."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07iga2v">
+        <inputEntry id="UnaryTests_1rwyol0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_151g9y4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1inmf4l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0loai7t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16retbh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xxi5wb">
+          <text>"No Code Plattformen bieten vorgefertigte Konzepte für die Autorisierung von Rollen an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07n5z12">
+          <text>"Low Code Plattformen bieten vorgefertigte Konzepte für die Autorisierung von Rollen an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16ar45n">
+          <text>"Ein extra Konzept für die Autorisierung von Rollen muss implementiert werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0oycuwu">
+        <inputEntry id="UnaryTests_05wefuu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10u9ajk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0utybc0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f5u7ax">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oo9i6f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bd947a">
+          <text>"Die Rückverfolgbarkeit auf den Zugriff von Ressourcen ist nur bedingt möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1630l2y">
+          <text>"Low Code Plattformen bieten Standarfunktionalitäten für dir Rückverfolgbarkeit von Zugriffen an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nxxmk5">
+          <text>"Die Funktionen zur Zurückverfolgung von Zugriffen auf Ressourcen muss extra implementiert werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ckzkak">
+        <inputEntry id="UnaryTests_0o474dc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_180pb3e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ghej2a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15nwx9t">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1la50a9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ew98d8">
+          <text>"Anwendungen bei denen Daten revisionssicher sein müssen sind mit No Code nicht geeignet."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cmvukl">
+          <text>"Speicherung von revisionssicheren Daten sind eine Herausforderung bei Low Code. Dennoch ist es mit bestimmten Plattformen und Konzepten möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0suzgbk">
+          <text>"Ein extra Konzept für revisionssichere Daten muss erarbeitet werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hb0x7m">
+        <inputEntry id="UnaryTests_0feh6k5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lijpqb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ulku9t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yya16z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09cvlb6">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18z2s9v">
+          <text>"No Code Plattformen bieten vorgefertigte Konzepte für die Authenzifizierung an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05p7y7k">
+          <text>"Low Code Plattformen bieten vorgefertigte Konzepte für die Authenzifizierung an."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r4dxho">
+          <text>"Ein extra Konzept für die Authenzifizierung muss implementiert werden."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="maintainability" name="Wartbarkeit">
+    <decisionTable id="DecisionTable_1dkr10j" hitPolicy="FIRST">
+      <input id="InputClause_0wbjy5z" label="Besteht die Anwendung aus verschiedenen Modulen?">
+        <inputExpression id="LiteralExpression_1dsjh9g" typeRef="boolean">
+          <text>modularity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0t7pfq5" label="Sollen die Komponenten wiederverwendet werden?">
+        <inputExpression id="LiteralExpression_0er8wwj" typeRef="boolean">
+          <text>reusability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mz1vr6" label="Soll es Auswertungsmöglichkeiten geben?">
+        <inputExpression id="LiteralExpression_1uxmbod" typeRef="boolean">
+          <text>evaluability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0pmkk6h" label="Soll die Anwendung zu einem späteren Zeitpunkt angepasst werden?">
+        <inputExpression id="LiteralExpression_0mm1lfa" typeRef="boolean">
+          <text>modifiability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0gwlmpu" label="Soll die Anwendung umfangreiche Testoptionen haben?">
+        <inputExpression id="LiteralExpression_1i1zp4k" typeRef="boolean">
+          <text>testability</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1r9jsna" label="Wartbarkeit No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_1m9a3wf">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_1bfsyop" label="Wartbarkeit Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_0v4iw7p">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_08skt0d" label="Wartbarkeit Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_11fsvs8">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0y798mw">
+        <inputEntry id="UnaryTests_1w3ibsy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_042qink">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ohrs0n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yzo8d1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wos23p">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rih39d">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1non5tp">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0oiddf4">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05q30hj">
+        <inputEntry id="UnaryTests_1gp4p1q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wjin1q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o40mih">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xwhebk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rslx9f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ncl6mi">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dapker">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rvtax6">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lcfib7">
+        <inputEntry id="UnaryTests_0yfo9y9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ay73m2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lmbpts">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rbuv15">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02jygl6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rx2bnd">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0895bks">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ixnj2y">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vfcajw">
+        <inputEntry id="UnaryTests_1mslcrf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vb3iia">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18avetm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u8r8wl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1exqw5x">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08youuc">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rqbn0r">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0u6by85">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0266qiw">
+        <inputEntry id="UnaryTests_182ir5o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abp4nc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s2fz1q">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12yh6dy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tkie47">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1evhcr9">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ocjpzt">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nmwqy4">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="maintainabilityRisk" name="Wartbarkeit Risiko">
+    <informationRequirement id="InformationRequirement_1pk0t7y">
+      <requiredDecision href="#maintainability" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_140pm5e" hitPolicy="COLLECT">
+      <input id="InputClause_11zxrf6" label="modularity">
+        <inputExpression id="LiteralExpression_03iqitp" typeRef="boolean">
+          <text>modularity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0v18hz4" label="reusability">
+        <inputExpression id="LiteralExpression_1utrxul" typeRef="boolean">
+          <text>reusability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0k11q2z" label="evaluability">
+        <inputExpression id="LiteralExpression_0snnig6" typeRef="boolean">
+          <text>evaluability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1k6k9iy" label="modifiability">
+        <inputExpression id="LiteralExpression_0omplmx" typeRef="boolean">
+          <text>modifiability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0udfyhh" label="testability">
+        <inputExpression id="LiteralExpression_18v9kro" typeRef="boolean">
+          <text>testability</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0uken5m" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_0zsys9y" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_0fzwkdd" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_130hmm6">
+        <inputEntry id="UnaryTests_1uitrl8">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00mkg6q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g2gat6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gy1isb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09wqkbe">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pbhqf6">
+          <text>"Bei einer Vielzahl von Modulen ist das Zusammenspiel der Module schwierg zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tlrfg1">
+          <text>"Die Interaktion von verschiedenen Modulen ist bei Low Code gut umsetztbar."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lkn2st">
+          <text>"Die Interaktion von verschiedenen Modulen ist bei klassischer Softwareentwicklung gut umsetztbar."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gig0zc">
+        <inputEntry id="UnaryTests_10vhur4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o0tada">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rzt4s9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0woh1dj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xhbph5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16d276q">
+          <text>"Die direkte Wiederverwendung von Komponenten ist nicht immer möglich, jedoch ist es schnell möglich ein Modul neu zu erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0utq7u8">
+          <text>"Die Wiederverwendbarkeit von Komponenten ist möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_097ruri">
+          <text>"Bei der Entwicklung muss auf die Wiederverwendbarkeit des Code geachtet werden. Dann können die Komponenten einfach wiederverwendet werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06dnwdp">
+        <inputEntry id="UnaryTests_191ry67">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jeztwn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h3rsa7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eygfb3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_120m5vi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r1m2dd">
+          <text>"Auswertungsmöglichkeiten werden durch Standardfunktionalitäten der Plattform umgesetzt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tgfo3a">
+          <text>"Auswertungsmöglichkeiten werden durch Standardfunktionalitäten der Plattform umgesetzt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15j2ru2">
+          <text>"Auswertungsmöglichkeiten müssen implementiert werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jbmh6p">
+        <inputEntry id="UnaryTests_1ffvxoa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19m428z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uy2wxl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cmt43b">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1opf84t">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_179wgcl">
+          <text>"Anpassungen zu einem späteren Zeitpunkt kann eine große Herausforderung darstellen, falls die Plattform die Funktionalität nicht unterstützt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m91yzp">
+          <text>"Anpassungen zu einem späteren Zeitpunkt kann eine große Herausforderung darstellen, falls die Plattform die Funktionalität nicht unterstützt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11hlw4h">
+          <text>"Anpassungen sind bei klassischer Softwareentwicklung im Rahmen den Architektur einfach möglich."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pik5xh">
+        <inputEntry id="UnaryTests_04enx7j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11g8moe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yhxibi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18utoht">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mqv6dc">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i6sjr4">
+          <text>"Bei No Code gibt es keine Möglichkeiten für automatisierte Tests."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18e9pv5">
+          <text>"Bei Low Code gibt es nur bedingte Möglichkeiten für automatisierte Tests."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0aers15">
+          <text>"Tests müssen geschrieben werden, damit die Anwendung automatisiert getestet werden kann."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="portability" name="Portabilität">
+    <decisionTable id="DecisionTable_18kzlln" hitPolicy="FIRST">
+      <input id="InputClause_0domnrq" label="Soll die Anwendung für verschiedene Software/Hardware angepasst werden?" biodi:width="192">
+        <inputExpression id="LiteralExpression_0wljzev" typeRef="boolean">
+          <text>adaptability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_11byncd" label="Bei App: Auf welche Art soll die App installiert werden?">
+        <inputExpression id="LiteralExpression_1gbskun" typeRef="string">
+          <text>installability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1kby5lw">
+          <text>"Appstore","APK","MDM","-"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_145ne36" label="Nach welchem Ansatz soll die Anwendung entwickelt werden?">
+        <inputExpression id="LiteralExpression_1vk4lsr" typeRef="string">
+          <text>interchangeability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_12rubm5">
+          <text>"Mobil zuerst","Desktop zuerst"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_0vxcdr6" label="Übertragbarkeit No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_0c3li96">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0ha4vs0" label="Übertragbarkeit Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_167137d">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_12lv4fb" label="Übertragbarkeit Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_1i7nnvt">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1kawley">
+        <inputEntry id="UnaryTests_07kt307">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k0ja26">
+          <text>"Appstore"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04utbiv">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00ta7u6">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_12wzd78">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_101sfwi">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_181cu4v">
+        <inputEntry id="UnaryTests_17xb64v">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j56mdg">
+          <text>"Appstore"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uz94sf">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rkplj0">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03ucwmp">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07udzie">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aej1uk">
+        <inputEntry id="UnaryTests_1eb5ge4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w4qq7k">
+          <text>"APK"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12g8njq">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jvnq3m">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_091q5of">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tapmi8">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18a2z3y">
+        <inputEntry id="UnaryTests_0zqw7h1">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gb62na">
+          <text>"APK"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l0x2cd">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gdv2sg">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c08yqj">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nsisi3">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zyak9s">
+        <inputEntry id="UnaryTests_0xqrb6f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j04udh">
+          <text>"MDM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_056aos9">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vqrqao">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ndfvim">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1j3ajaq">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yxw2qy">
+        <inputEntry id="UnaryTests_1wcgh5a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iw6m9x">
+          <text>"MDM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k4zidu">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g4gr76">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0c0gzub">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g17l61">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w7so30">
+        <inputEntry id="UnaryTests_0riugim">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05831hi">
+          <text>"Appstore"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c6b64r">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lnzewn">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m6yr9e">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0c816cq">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14ghlrh">
+        <inputEntry id="UnaryTests_1nlin97">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14vtg7f">
+          <text>"Appstore"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l5ly0f">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1izw9q7">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l1guky">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jmm9eb">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ukz3nd">
+        <inputEntry id="UnaryTests_1ofglyt">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uax7v9">
+          <text>"APK"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w7zm2k">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16hxivt">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cdqjxe">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1izzv5w">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1umu1s9">
+        <inputEntry id="UnaryTests_1wj2av4">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kxlish">
+          <text>"APK"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wea1ll">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0csvspm">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17mpg91">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qu83hf">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1swkgh7">
+        <inputEntry id="UnaryTests_0xe8yre">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f1s5b7">
+          <text>"MDM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1avf6ae">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t2fce3">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19b8fw2">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qacddt">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_005ope9">
+        <inputEntry id="UnaryTests_1a6zcxl">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y43xza">
+          <text>"MDM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r69jf8">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gxw1rh">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0t0j7dc">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ghx7gb">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14ym1m7">
+        <inputEntry id="UnaryTests_00lgaeg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00yhz1g">
+          <text>"-"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xqveg1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xx594r">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g5mzvj">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15urn8f">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gw3mhq">
+        <inputEntry id="UnaryTests_0ektl8t">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1crj5s0">
+          <text>"-"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w712aj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15adltx">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tehne8">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14lmeks">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sh5jom">
+        <inputEntry id="UnaryTests_1l45h97">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eyub8o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0urzh59">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pnuysf">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jqw4d5">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1bs8tv8">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="portabilityRisk" name="Portabilität Risiko">
+    <informationRequirement id="InformationRequirement_0majg5k">
+      <requiredDecision href="#portability" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ea77o8" hitPolicy="COLLECT">
+      <input id="InputClause_0n358nf" label="adaptability">
+        <inputExpression id="LiteralExpression_00ykz8p" typeRef="boolean">
+          <text>adaptability</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1r5dcm1" label="installability">
+        <inputExpression id="LiteralExpression_0htaswd" typeRef="string">
+          <text>installability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_13eebb0">
+          <text>"Appstore","APK","MDM"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_18pfc8f" label="interchangeability">
+        <inputExpression id="LiteralExpression_0l9ibvm" typeRef="string">
+          <text>interchangeability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_152ep1z">
+          <text>"Mobil zuerst","Desktop zuerst"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_1tzbrj3" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_0su45s6" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_10g131l" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_0ttjuob">
+        <inputEntry id="UnaryTests_1dx75qf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k281et">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10a12uf">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hv8vzl">
+          <text>"Die Anpassung auf verschiedene Software/Hardware ist schwer, bzw. kann nicht möglich sein."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1by9zd7">
+          <text>"Die Anpassung auf verschiedene Software/Hardware ist möglich, sofern die Plattform die entsprechende Endgeräte unterstützt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uort8k">
+          <text>"Die Anpassung auf verschiedene Software/Hardware bringt einen hohen Aufwand mit sich."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w5kztn">
+        <inputEntry id="UnaryTests_0xk8zxw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bxnzcv">
+          <text>"Appstore"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_155qsya">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kc8wf0">
+          <text>"Bei bestimmten No Code Plattformen kann die Anwendung direkt auf dem Appstore veröffentlicht werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04msrjz">
+          <text>"Bei bestimmten Low Code Plattformen kann die Anwendung direkt auf dem Appstore veröffentlicht werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0foexoh">
+          <text>"Bei der Entwicklung muss darauf geachtet werden, dass die Anwendung den Anforderungen des Appstores entspricht zur Veröffentlichung."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15enoch">
+        <inputEntry id="UnaryTests_13lw4r5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ad1q1p">
+          <text>"APK"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yds1x8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i1q9g2">
+          <text>"Eine APK der Anwendung lässt sich per Knopfdruck generieren."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06fug8m">
+          <text>"Eine APK der Anwendung lässt sich per Knopfdruck generieren."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wxbgc2">
+          <text>"Eine APK der Anwendung muss generiert werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jg2mcg">
+        <inputEntry id="UnaryTests_1iyx805">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q1ldeq">
+          <text>"MDM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gm0909">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gufsaq">
+          <text>"Es wird ein zusätzliches Mobile Device Management benötigt zur Veröffentlichung der Anwendung."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11fbxse">
+          <text>"Es wird ein zusätzliches Mobile Device Management benötigt zur Veröffentlichung der Anwendung."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07x5moo">
+          <text>"Die Anwendung muss durch ein Mobile Device Management veröffentlicht werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1f19vfp">
+        <inputEntry id="UnaryTests_0sly9v9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vj35xv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02ffyw4">
+          <text>"Mobil zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o6vuo4">
+          <text>"Durch die Drag-And-Drop Funktion lässt neben einer mobilen Benutzeroberflläche zügig eine Desktop Benutzeroberflläche erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vdap7w">
+          <text>"Durch die Drag-And-Drop Funktion lässt neben einer mobilen Benutzeroberflläche zügig eine Desktop Benutzeroberflläche erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0sub5ah">
+          <text>"Die Erstellung einer späteren Desktop Benutzeroberfläche erfordert erneuten Programmieraufwand."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mau1fh">
+        <inputEntry id="UnaryTests_0x3586l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11ql5g1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yjgqef">
+          <text>"Desktop zuerst"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11wczxd">
+          <text>"Durch die Drag-And-Drop Funktion lässt neben einer Desktop Benutzeroberflläche zügig eine mobilen Benutzeroberflläche erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1miop1w">
+          <text>"Durch die Drag-And-Drop Funktion lässt neben einer Desktop Benutzeroberflläche zügig eine mobilen Benutzeroberflläche erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tx934k">
+          <text>"Die Erstellung einer späteren mobilen Benutzeroberfläche erfordert erneuten Programmieraufwand."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="datastructure" name="Datenstruktur">
+    <decisionTable id="DecisionTable_06vmue9" hitPolicy="FIRST">
+      <input id="InputClause_1604zpa" label="Wie viele Entitäten sind für das Datenmodell notwendig?">
+        <inputExpression id="LiteralExpression_1f0wxqq" typeRef="integer">
+          <text>numberEntities</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10okdnu" label="Welche Formen der Beziehungen liegen vor?">
+        <inputExpression id="LiteralExpression_02jynn7" typeRef="string">
+          <text>relationship</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1ubzik2">
+          <text>"eins-zu-eins-Beziehung","eins-zu-viele-Beziehung","viele-zu-viele-Beziehung"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0aqce2m" label="Bestehen die Eingabewerte aus Standardisierungen oder aus vielfältigen Varianten?">
+        <inputExpression id="LiteralExpression_0gkmpbr" typeRef="string">
+          <text>inputValues</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1vof8eo">
+          <text>"Standardisierung","Varianten"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0nlq8xr" label="Bestehen die Ausgabewerte aus Standardisierungen oder aus vielfältigen Varianten?">
+        <inputExpression id="LiteralExpression_0825n7v" typeRef="string">
+          <text>outputValues</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0t06qmj">
+          <text>"Standardisierung","Varianten"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_05c1lw9" label="Gibt es Berechnungslogiken, die die Standardrechenoperationen (+,-,*,/) übersteigen?">
+        <inputExpression id="LiteralExpression_0li1dz2" typeRef="boolean">
+          <text>calculationLogic</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0gwg9pu" label="Datenstruktur No Code" name="noCode" typeRef="string">
+        <outputValues id="UnaryTests_00r7tt8">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_06oqlo1" label="Datenstruktur Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_1loikx4">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_1w5a7w0" label="Datenstruktur Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_18qd7ez">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0szmn4r">
+        <inputEntry id="UnaryTests_11kss3t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h8do2z">
+          <text>"viele-zu-viele-Beziehung"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sunn2n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19dcxva">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07a3dqc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i5xt2p">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1mb8vmq">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15ism5a">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15tnu0t">
+        <inputEntry id="UnaryTests_01snvke">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sz3msc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fki132">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_162i91z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vvorkl">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hany6p">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ehgfag">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0er9nmz">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06sqpms">
+        <inputEntry id="UnaryTests_11as4qb">
+          <text>&gt;=7</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vr5ojq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01xzsm6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15hggqd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pfqsnz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19k3jww">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0sdi3nm">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tovyrq">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lbx2v6">
+        <inputEntry id="UnaryTests_1nv28yx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u1y3q0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ffnxjj">
+          <text>"Varianten"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pxg9b3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09e441m">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0in899q">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0y5w534">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gs5r76">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_146ofur">
+        <inputEntry id="UnaryTests_0ttx15v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02jkvtw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xbuupa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g5hrfn">
+          <text>"Varianten"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d4eqlr">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mcvvdv">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jyxnhk">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0prleo2">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i6xk3o">
+        <inputEntry id="UnaryTests_0xkok1a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eih1sj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nar38r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bw39e6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ia5saw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1owyytk">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0y7nkn8">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_084hvpf">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="datastructureRisk" name="Datenstruktur Risiko">
+    <informationRequirement id="InformationRequirement_0s7c5pa">
+      <requiredDecision href="#datastructure" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1qr21th" hitPolicy="COLLECT">
+      <input id="InputClause_0esy5wb" label="numberEntities">
+        <inputExpression id="LiteralExpression_0ywz1s4" typeRef="integer">
+          <text>numberEntities</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0d0rmum" label="relationship">
+        <inputExpression id="LiteralExpression_1wst2qm" typeRef="string">
+          <text>relationship</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0gxves5">
+          <text>"eins-zu-eins-Beziehung","eins-zu-viele-Beziehung","viele-zu-viele-Beziehung"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0ws8oqt" label="inputValues">
+        <inputExpression id="LiteralExpression_0ceqoiu" typeRef="string">
+          <text>inputValues</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1cu6rm6">
+          <text>"Standardisierung","Varianten"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1mpkmop" label="outputValues">
+        <inputExpression id="LiteralExpression_05d3obh" typeRef="string">
+          <text>outputValues</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1t7808m">
+          <text>"Standardisierung","Varianten"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1evb5yu" label="calculationLogic">
+        <inputExpression id="LiteralExpression_0nfc7u1" typeRef="boolean">
+          <text>calculationLogic</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0byj8v7" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_0uay9y0" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_0yzf9vl" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_1m32isi">
+        <inputEntry id="UnaryTests_0294aml">
+          <text>&gt;= 7</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ltdjaj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1drj0dz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mwk0mq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01wm4bk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g3umow">
+          <text>"Bei der Datenstruktur mit einer großen Anzahl von Entitäten können Probleme bei den Beziehungen auftreten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_08t1c2t">
+          <text>"Eine Datenstruktur mit einer großen Anzahl von Entitäten ist herausfordernd, aber handhabbar."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m3n5mm">
+          <text>"Bei der klassischen Softwareentwicklung gibt es keine Grenzen bezüglich der Anzahl der Entitäten."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0y6cpro">
+        <inputEntry id="UnaryTests_1e84zao">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j30l1b">
+          <text>"viele-zu-viele-Beziehung"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r22box">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qnij0c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lane9j">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ii40xg">
+          <text>"Viele-zu-viele-Beziehungen lassen sich nur über Umwege abbilden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00wlzv9">
+          <text>"Viele-zu-viele-Beziehungen lassen sich nur über Umwege abbilden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1utpz2y">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cjj9y7">
+        <inputEntry id="UnaryTests_058ud5x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xc96d4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dfvil9">
+          <text>"Varianten"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nhar9d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_189y0be">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ycs9bx">
+          <text>"Die Eingabewerte als Varianten müssen definiert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d7l6mq">
+          <text>"Die Eingabewerte als Varianten müssen definiert werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1amthxr">
+          <text>"Die Eingabewerte als Varianten müssen über die Eingabemaske abgepüft werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ymde4e">
+        <inputEntry id="UnaryTests_00j6pz1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mwtms8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g3ft83">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qj3jt9">
+          <text>"Varianten"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jpvont">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wyea7m">
+          <text>"Die Ausgabewerte als Varianten sind mit No Code schwer zu berechnen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0h3xdg4">
+          <text>"Die Ausgabewerte als Varianten sind mit Low Code schwer zu berechnen, ggf. müssen dafür extra Funktionen geschrieben werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yqtm7i">
+          <text>"Für die Ausgabewerte als Varianten werden individuelle Funktionen benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jsbas7">
+        <inputEntry id="UnaryTests_1ixw6vv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e2pd1t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_116ctqj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ako31k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sf25p3">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bp4pd1">
+          <text>"Es muss geprüft werden, ob die No Code Plattform die Berechnungslogiken unterstützt."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p79osh">
+          <text>"Durch das Entwickeln von eigenen Funktionen können komplexere Berechnungen durchgeführt werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1v5fia6">
+          <text>"Es gibt keine Begrenzungen bezüglich der Komplexität der Berechnungen."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="usability" name="Benutzerfreundlichkeit">
+    <decisionTable id="DecisionTable_01lru4o" hitPolicy="FIRST">
+      <input id="InputClause_06iqgyw" label="Für welchen Personenkreis ist die Anwendung bestimmt?">
+        <inputExpression id="LiteralExpression_1wluysg" typeRef="string">
+          <text>peopleGroup</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_18fz2qy">
+          <text>"Mitarbeiter","Kunden","frei verfügbar"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_17bymt1" label="Welche Art von User wird die Anwendung nutzen?">
+        <inputExpression id="LiteralExpression_0qqj3cr" typeRef="string">
+          <text>userType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_02a8jm3">
+          <text>"Gelegenheitsbenutzer","Fachbenutzer"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_00asvk2" label="Spielt die Einfachheit der Bedienbarkeit eine hohe Relevanz?">
+        <inputExpression id="LiteralExpression_06oys9g" typeRef="boolean">
+          <text>simplicity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_09lekxe" label="Soll der Benutzer stark vor Eingabefehler geschützt werden?">
+        <inputExpression id="LiteralExpression_0pt83wt" typeRef="boolean">
+          <text>inputError</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0isyzyh" label="Ist ein ästhetisches User Interface eine hohe Relevanz für das Geschäftsmodell?">
+        <inputExpression id="LiteralExpression_15uliyq" typeRef="boolean">
+          <text>userInterface</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0sovcoh" label="Von welchem Geräten soll die Anwendung primär aufgerufen werden können?">
+        <inputExpression id="LiteralExpression_1he5cri" typeRef="string">
+          <text>accessibility</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_09x9nfy">
+          <text>"PC","Tablet","Smartphone"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0yfmhj6" label="Wie viele verschiedene Rollen werden in der Anwendung benötigt?">
+        <inputExpression id="LiteralExpression_11wv9l0" typeRef="integer">
+          <text>numberRole</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0hb7v7u" label="Benutzerfreundlichkeit No Code" name="noCode" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_01kqd3o">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_04j5cog" label="Benutzerfreundlichkeit Low Code" name="lowCode" typeRef="string">
+        <outputValues id="UnaryTests_04n93yn">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_1ag6s6o" label="Benutzerfreundlichkeit Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_005tdhn">
+          <text>"einfach","kompliziert","komplex"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_07j616v">
+        <inputEntry id="UnaryTests_0xzv88o">
+          <text>"frei verfügbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1y06lds">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0etad21">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j55mb1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19jkuyo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hgp0a3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_011bdsf">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s9sa5h">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0285ukt">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10j5snr">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11uaidf">
+        <inputEntry id="UnaryTests_1jv3zjo">
+          <text>"Kunden"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ukt5ks">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h3jxve">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fx7vy7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1566nha">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03765sl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gaswm8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k3tjqb">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tv43xa">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bdf8kz">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pk4dw0">
+        <inputEntry id="UnaryTests_029pk6u">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18kd9qj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e5xj4r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c9n8ne">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03cpr9r">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w0tqvh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0funz68">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ma7gzg">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ok438d">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04bq6it">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xaak82">
+        <inputEntry id="UnaryTests_1wpi1r7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w9gl38">
+          <text>"Gelegenheitsbenutzer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wl2pm0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ox5w5l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iqw9qj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lii8wy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ifd8eu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fbln30">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0a2wftu">
+          <text>"kompliziert"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1nsyvki">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jbqkm9">
+        <inputEntry id="UnaryTests_18pq8ls">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tha5ix">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gn8xma">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e5spzo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aujerh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0292juf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5wkbd">
+          <text>&gt;=4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12j6xhv">
+          <text>"komplex"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1eib7hn">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_148z0ud">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06yt6e7">
+        <inputEntry id="UnaryTests_0y3x3uc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i7wy54">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xsugcj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kmav5d">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0idwi53">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c2y4ut">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n5025v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0esuvcw">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0si9tjb">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_145hybk">
+          <text>"kompliziert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1e9g643">
+        <inputEntry id="UnaryTests_0m31tij">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qp2cci">
+          <text>"Fachbenutzer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wtezae">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vf5crp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18f8d37">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ct95vw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yttra7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dei25l">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0senizi">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0isoa4n">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w82xp6">
+        <inputEntry id="UnaryTests_1a2c7pg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1igqb11">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15c0k3l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11n5sdv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q9xzoe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_000x8yk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g9a3a4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yp8okw">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bj07cv">
+          <text>"einfach"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fnt55c">
+          <text>"einfach"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="usabilityRisk" name="Benutzerfreundlichkeit Risiko">
+    <informationRequirement id="InformationRequirement_151kjzy">
+      <requiredDecision href="#usability" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0c6zr3x" hitPolicy="COLLECT">
+      <input id="InputClause_1p0irc7" label="peopleGroup">
+        <inputExpression id="LiteralExpression_12l221o" typeRef="string">
+          <text>peopleGroup</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_09bxd3y">
+          <text>"Mitarbeiter","Kunden","frei verfügbar"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_10jsji8" label="userType">
+        <inputExpression id="LiteralExpression_0az8nqv" typeRef="string">
+          <text>userType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0o2vvq0">
+          <text>"Fachbenutzer","Gelegenheitsbenutzer"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0fxnczt" label="simplicity">
+        <inputExpression id="LiteralExpression_19cytjk" typeRef="boolean">
+          <text>simplicity</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0p74dfn" label="inputError">
+        <inputExpression id="LiteralExpression_0soz96b" typeRef="boolean">
+          <text>inputError</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0eppkor" label="userInterface">
+        <inputExpression id="LiteralExpression_0wnab8t" typeRef="boolean">
+          <text>userInterface</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0hdb701" label="accessibility">
+        <inputExpression id="LiteralExpression_1p83u51" typeRef="string">
+          <text>accessibility</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1dfsbmv">
+          <text>"PC","Tablet","Smartphone"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1da5pby" label="numberRole">
+        <inputExpression id="LiteralExpression_13vtdju" typeRef="integer">
+          <text>numberRole</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0ajrycm" label="No Code" name="noCode" typeRef="string" />
+      <output id="OutputClause_0u3bywv" label="Low Code" name="lowCode" typeRef="string" />
+      <output id="OutputClause_1bids7h" label="Code" name="code" typeRef="string" />
+      <rule id="DecisionRule_1nk1qpg">
+        <inputEntry id="UnaryTests_0y9fwxt">
+          <text>"frei verfügbar"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l2pjyb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ryrh3t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tu0skw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tcev5o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d2jkia">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ojvkk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0by0opp">
+          <text>"Ein Alleinstellungsmerkmal lässt sich mit No Code für einen frei verfügbaren Markt nicht umsetzen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ceu00f">
+          <text>"Ein Alleinstellungsmerkmal lässt sich mit Low Code für einen frei verfügbaren Markt nur teilweise umsetzen. Mit erheblichem Aufwand kann es nach einer eigenen Anwendung aussehen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dt02yp">
+          <text>"Für die Gestaltung der Benutzeroberfläche gibt es keine Grenzen."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oleie7">
+        <inputEntry id="UnaryTests_1cx5v67">
+          <text>"Kunden"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14pf3i7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xd1lld">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01n8hi6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m18lsx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yqmruw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rivd1w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_040xdo2">
+          <text>"Mit No Code lässt sich nicht die benutzerfreundlichste Anwendung für Kunden erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0v07an2">
+          <text>"Mit Low Code lässt sich nicht die benutzerfreundlichste Anwendung für Kunden erstellen."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1dcwfx7">
+          <text>"Mit klassischer Softwareentwicklung kann die Benuzteroberfläche individuell an die Bedürfnisse des Kunden angepasst werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j1at2l">
+        <inputEntry id="UnaryTests_1pmnr40">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_004t5sc">
+          <text>"Fachbenutzer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hmgrmt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tcwg4g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bpqxtw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w7r4si">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nxw4bq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02pdpae">
+          <text>"Für Fachbenutzer sollte die Bedienung übersichtlich und wie bisherige Anwendungen gestaltet werden. Die bestehenden Gestaltungskomponenten helfen dabei."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02lvclz">
+          <text>"Für Fachbenutzer sollte die Bedienung übersichtlich und wie bisherige Anwendungen gestaltet werden. Die bestehenden Gestaltungskomponenten helfen dabei."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02jfkrn">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_169u3mw">
+        <inputEntry id="UnaryTests_19vvq0c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xv9g4f">
+          <text>"Gelegenheitsbenutzer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18k5r37">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17zb25u">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rhsr0g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bn2vff">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u7x1ve">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_042uq3h">
+          <text>"Für einen Gelegenheitsbenutzer muss beachtet werden, dass er die Plattform nicht kennt und trotzdem muss er sich schnell zurecht finden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zdstgh">
+          <text>"Für einen Gelegenheitsbenutzer muss beachtet werden, dass er die Plattform nicht kennt und trotzdem muss er sich schnell zurecht finden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mi57bd">
+          <text>"Für einen Gelegenheitsbenutzer muss die Anwendung entsprechnd den verbreiteteten Richtlinien zur Gestaltung einer Anwendung erstellt werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19av3k2">
+        <inputEntry id="UnaryTests_1dq28l6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fs5sxd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09hcplv">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tt2kpf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ly4wp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ywzaol">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uva6x3">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10vv3bc">
+          <text>"Für die Einfachheit der Bedienbarkeit sollten die Standardelemente verwendet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hbxukq">
+          <text>"Für die Einfachheit der Bedienbarkeit sollten die Standardelemente verwendet werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bxst6z">
+          <text>"Für die Einfachheit der Bedienbarkeit müssen die Elemente übersichtlich gehalten werden."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a0j5ow">
+        <inputEntry id="UnaryTests_0s2tl48">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06x5zam">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q2anve">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ycakg6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gydjaf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pnoamg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pljya5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0svpp39">
+          <text>"Durch Standardfunktionalitäten kann der Benutzer vor Eingabefehlern geschützt werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1x65myq">
+          <text>"Durch Standardfunktionalitäten kann der Benutzer vor Eingabefehlern geschützt werden."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_158t7bc">
+          <text>"Es werden zusätzliche Überprüfungen für die Eingabe benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iob3m8">
+        <inputEntry id="UnaryTests_0nfokqy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dy2f3l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07sm83e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yqpb8x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c61xa3">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oxfqjg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13t7cr1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o4ys01">
+          <text>"Die Möglichkeit zur Gestaltung einer ästhetischen Benutzeroberfläche sind gering"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ryngy0">
+          <text>"Die Gestaltung einer ästhetischen Benutzeroberfläche ist teilweise möglich."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18mgslp">
+          <text>"Die Möglichkeit zur Gestaltung einer ästhetischen Benutzeroberfläche sind bei dieser Form am größten."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nt8140">
+        <inputEntry id="UnaryTests_1gf9gz1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i0vvwu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dblnqp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09r5vja">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0my55f5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07znlyt">
+          <text>"Smartphone"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16rv9k6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o6joui">
+          <text>"Smarphoneanwendungen sind mit No Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0o9iw15">
+          <text>"Smarphoneanwendungen sind mit Low Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d5tns4">
+          <text>"Für die Gestaltung von Smartphoneanwendungen wird Expertise benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dhxhwo">
+        <inputEntry id="UnaryTests_017pf3t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lx49od">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r46qzr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p0o6ei">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0asxc8s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sqbsws">
+          <text>"PC"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_115owys">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u71zxd">
+          <text>"PC-Anwendungen sind mit No Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06aciol">
+          <text>"PC-Anwendungen sind mit Low Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l9qcxt">
+          <text>"Für die Gestaltung von PC-Anwendungen wird Expertise benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lr7vwg">
+        <inputEntry id="UnaryTests_121az3h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04tuerl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19n8w3c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14egic8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kyp60w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fyt85t">
+          <text>"Tablet"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d4ln4r">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qwoh9j">
+          <text>"Tabletanwendungen sind mit No Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17i7u6v">
+          <text>"Tabletanwendungen sind mit Low Code einfach zu gestalten."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wca6d4">
+          <text>"Für die Gestaltung von Tabletanwendungen wird Expertise benötigt."</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ml43lu">
+        <inputEntry id="UnaryTests_124m11z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oamhqf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1niv5d6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_044q4eo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04vzhy5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1loasvf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rqr5wo">
+          <text>&gt;=4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10zdpbp">
+          <text>"Mit No Code ist eine hohe Anzahl an Rollen schwer handhabbar."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1eczd4e">
+          <text>"Mit Low Code ist eine hohe Anzahl an Rollen handhabbar."</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0tyor27">
+          <text>"Mit klassischer Softwareentwicklung ist eine hohe Anzahl an Rollen handhabbar."</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="decisionSoftwareType" name="decisionSoftwareType">
+    <decisionTable id="DecisionTable_17gaigt" hitPolicy="FIRST">
+      <input id="InputClause_1nj1qgw" label="softwareType">
+        <inputExpression id="LiteralExpression_0bb2m0u" typeRef="string">
+          <text>softwareType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0dm6uy8">
+          <text>"noCode","lowCode","code"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1nqbh1m" label="numberComplexity">
+        <inputExpression id="LiteralExpression_0rsvdcs" typeRef="integer">
+          <text>numberComplexity</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1i2vii4" label="effort" name="effort" typeRef="string">
+        <outputValues id="UnaryTests_0fxm1hg">
+          <text>"niedrig","mittel","hoch"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0b663ma">
+        <inputEntry id="UnaryTests_07cqs34">
+          <text>"noCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17z8sbg">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kcnnr7">
+          <text>"niedrig"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ffy0lx">
+        <inputEntry id="UnaryTests_1ne03vh">
+          <text>"noCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qt8lp0">
+          <text>&lt;6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ky29p">
+          <text>"mittel"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mb37dz">
+        <inputEntry id="UnaryTests_11xempp">
+          <text>"noCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s07hxo">
+          <text>&gt;=6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17kw7q8">
+          <text>"hoch"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10gf3ym">
+        <inputEntry id="UnaryTests_1x1dg2a">
+          <text>"lowCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_143ewov">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0c4qf9f">
+          <text>"mittel"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m0476p">
+        <inputEntry id="UnaryTests_0eqg4ub">
+          <text>"lowCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06udtq2">
+          <text>&lt;6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mm5teh">
+          <text>"niedrig"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yhogwx">
+        <inputEntry id="UnaryTests_18d6vh9">
+          <text>"lowCode"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1saqse5">
+          <text>&gt;=6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1khvval">
+          <text>"hoch"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1e6y5j6">
+        <inputEntry id="UnaryTests_1to6jsn">
+          <text>"code"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhs4a5">
+          <text>&lt;3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qy0buv">
+          <text>"hoch"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11e8399">
+        <inputEntry id="UnaryTests_15o9vwf">
+          <text>"code"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w7xfwa">
+          <text>&lt;6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vik3uw">
+          <text>"mittel"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06zedfj">
+        <inputEntry id="UnaryTests_1ov2yex">
+          <text>"code"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oo3wzd">
+          <text>&gt;=6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g9x3zh">
+          <text>"niedrig"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="performance">
+        <dc:Bounds height="80" width="180" x="160" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_05x4yhl" dmnElementRef="performanceRisk">
+        <dc:Bounds height="80" width="180" x="160" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1m3mytf" dmnElementRef="InformationRequirement_18m2sl8">
+        <di:waypoint x="250" y="490" />
+        <di:waypoint x="250" y="440" />
+        <di:waypoint x="250" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0xpvvct" dmnElementRef="InformationRequirement_1vx6th6">
+        <di:waypoint x="560" y="490" />
+        <di:waypoint x="560" y="440" />
+        <di:waypoint x="560" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zpch6g" dmnElementRef="compatibility">
+        <dc:Bounds height="80" width="180" x="470" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_16g4s0k" dmnElementRef="compatibilityRisk">
+        <dc:Bounds height="80" width="180" x="470" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1m67dal" dmnElementRef="decisionSoftware">
+        <dc:Bounds height="80" width="180" x="1100" y="150" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ova1p8" dmnElementRef="InformationRequirement_1owvxlv">
+        <di:waypoint x="250" y="340" />
+        <di:waypoint x="1120" y="250" />
+        <di:waypoint x="1120" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0qchi58" dmnElementRef="InformationRequirement_10pzfei">
+        <di:waypoint x="560" y="340" />
+        <di:waypoint x="1140" y="250" />
+        <di:waypoint x="1140" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_16zb18u" dmnElementRef="InformationRequirement_1l01ats">
+        <di:waypoint x="880" y="490" />
+        <di:waypoint x="880" y="440" />
+        <di:waypoint x="880" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0rhkpyx" dmnElementRef="InformationRequirement_0vtpo4a">
+        <di:waypoint x="880" y="340" />
+        <di:waypoint x="1160" y="250" />
+        <di:waypoint x="1160" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_02hv2fw" dmnElementRef="reliability">
+        <dc:Bounds height="80" width="180" x="790" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1cvlliv" dmnElementRef="reliabilityRisk">
+        <dc:Bounds height="80" width="180" x="790" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1xbvknf" dmnElementRef="security">
+        <dc:Bounds height="80" width="180" x="1100" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09mqzff" dmnElementRef="securityRisk">
+        <dc:Bounds height="80" width="180" x="1100" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hoe7rc" dmnElementRef="InformationRequirement_1s8nhma">
+        <di:waypoint x="1190" y="490" />
+        <di:waypoint x="1190" y="440" />
+        <di:waypoint x="1190" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0hhf6za" dmnElementRef="InformationRequirement_02gjaux">
+        <di:waypoint x="1190" y="340" />
+        <di:waypoint x="1180" y="250" />
+        <di:waypoint x="1180" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0dc64n9" dmnElementRef="InformationRequirement_1pk0t7y">
+        <di:waypoint x="1480" y="490" />
+        <di:waypoint x="1480" y="440" />
+        <di:waypoint x="1480" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1yfgcy5" dmnElementRef="InformationRequirement_0vsj398">
+        <di:waypoint x="1480" y="340" />
+        <di:waypoint x="1200" y="250" />
+        <di:waypoint x="1200" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0cgeqyb" dmnElementRef="maintainability">
+        <dc:Bounds height="80" width="180" x="1390" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1sv91ut" dmnElementRef="maintainabilityRisk">
+        <dc:Bounds height="80" width="180" x="1390" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1vo3pbg" dmnElementRef="portability">
+        <dc:Bounds height="80" width="180" x="1680" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0alm15l" dmnElementRef="portabilityRisk">
+        <dc:Bounds height="80" width="180" x="1680" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0q1r5p0" dmnElementRef="InformationRequirement_0majg5k">
+        <di:waypoint x="1770" y="490" />
+        <di:waypoint x="1770" y="440" />
+        <di:waypoint x="1770" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ycuc9p" dmnElementRef="InformationRequirement_1b44iez">
+        <di:waypoint x="1770" y="340" />
+        <di:waypoint x="1220" y="250" />
+        <di:waypoint x="1220" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0rxhr5l" dmnElementRef="datastructure">
+        <dc:Bounds height="80" width="180" x="1970" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_14oey5u" dmnElementRef="datastructureRisk">
+        <dc:Bounds height="80" width="180" x="1970" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1352a9j" dmnElementRef="InformationRequirement_0s7c5pa">
+        <di:waypoint x="2060" y="490" />
+        <di:waypoint x="2060" y="440" />
+        <di:waypoint x="2060" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_05cvrm0" dmnElementRef="InformationRequirement_1xvamox">
+        <di:waypoint x="2060" y="340" />
+        <di:waypoint x="1240" y="250" />
+        <di:waypoint x="1240" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1yk0obp" dmnElementRef="usability">
+        <dc:Bounds height="80" width="180" x="2260" y="490" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1lw28qw" dmnElementRef="usabilityRisk">
+        <dc:Bounds height="80" width="180" x="2260" y="340" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_07x471n" dmnElementRef="InformationRequirement_151kjzy">
+        <di:waypoint x="2350" y="490" />
+        <di:waypoint x="2350" y="440" />
+        <di:waypoint x="2350" y="420" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1cx585t" dmnElementRef="InformationRequirement_02z1dt5">
+        <di:waypoint x="2350" y="340" />
+        <di:waypoint x="1260" y="250" />
+        <di:waypoint x="1260" y="230" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0z1kspa" dmnElementRef="decisionSoftwareType">
+        <dc:Bounds height="80" width="180" x="550" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
